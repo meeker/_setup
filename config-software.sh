@@ -49,11 +49,5 @@ cp _files/_bash_profile ~/.bash_profile
 
 open _files/Tomorrow\ Night\ Bright.terminal
 
-###############################################################################
-# ScreenSaver                                                                 #
-###############################################################################
-
-open _files/Today.saver
-
 echo "Done. Note that some of these changes require a logout/restart to take effect."
 
