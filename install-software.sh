@@ -53,6 +53,7 @@ apps=(
   opera-mobile-emulator
   opera-beta
   reflector
+  sketch
   skype
   sublime-text
   superduper
