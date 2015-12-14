@@ -55,11 +55,13 @@ apps=(
   reflector
   sketch
   skype
+  sourcetree
   sublime-text
   superduper
   virtualbox
   vagrant
   webkit-nightly
+  zeplin
 )
 
 # Install apps to /Applications

@@ -21,14 +21,6 @@ defaults write com.google.Chrome.canary PMPrintingExpandedStateForPrint2 -bool t
 # Bypass the annoyingly slow t.co URL shortener
 defaults write com.tapbots.TweetbotMac OpenURLsDirectly -bool true
 
-###############################################################################
-# Sublime                                                                     #
-###############################################################################
-
-cd ~/Library/Application\ Support/Sublime\ Text\ 2/Packages/
-rm -r User
-ln -s /Users/mark/Dropbox\ \(Personal\)/Apps/Sublime/User/
-
 
 ###############################################################################
 # xScope                                                                     #
@@ -48,6 +40,15 @@ cp _files/_bash_profile ~/.bash_profile
 ###############################################################################
 
 open _files/Tomorrow\ Night\ Bright.terminal
+
+###############################################################################
+# Sublime                                                                     #
+###############################################################################
+
+cd ~/Library/Application\ Support/Sublime\ Text\ 2/Packages/
+rm -r User
+ln -s /Users/mark/Dropbox\ \(Personal\)/Apps/Sublime/User/
+
 
 echo "Done. Note that some of these changes require a logout/restart to take effect."
 
