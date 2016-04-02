@@ -55,7 +55,6 @@ apps=(
   reflector
   sketch
   skype
-  sourcetree
   sublime-text
   superduper
   virtualbox
@@ -78,6 +77,7 @@ fonts=(
   font-droid-serif
   font-exo
   font-fontawesome
+  font-input
   font-lato
   font-league-gothic
   font-lobster
@@ -107,4 +107,4 @@ brew cask cleanup
 
 # install global node modules and gems
 gem install jekyll
-npm install -g grunt-cli gulp bower
+npm install -g grunt-cli gulp bower yo
