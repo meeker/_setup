@@ -15,10 +15,6 @@ brew tap caskroom/cask
 brew tap caskroom/versions
 brew tap caskroom/fonts
 
-
-# install caskroom
-brew install caskroom/cask/brew-cask
-
 binaries=(
   git
   node4-lts
@@ -31,35 +27,29 @@ echo "installing binaries..."
 brew install ${binaries[@]}
 
 apps=(
-  adobe-creative-cloud
   alfred
-  android-studio
   charles
   chromium
   doxie
   dropbox
   firefox
   firefoxdeveloperedition
+  google-chrome
   google-chrome-canary
   ghostlab
   github-desktop
-  hipchat
   imageoptim
-  java6
-  joinme
-  logitech-myharmony
   logitech-unifying
   opera
   opera-mobile-emulator
   opera-beta
   reflector
+  safari-technology-preview
   sketch
   skype
-  sublime-text
+  sublime-text2
   superduper
   virtualbox
-  vagrant
-  webkit-nightly
   zeplin
 )
 
@@ -69,27 +59,31 @@ brew cask install --appdir="/Applications" ${apps[@]}
 
 # fonts
 fonts=(
-  font-architects-daughter
   font-bitter
-  font-crete-round
   font-droid-sans
   font-droid-sans-mono
   font-droid-serif
   font-exo
+  font-exo2
   font-fontawesome
   font-input
   font-lato
   font-league-gothic
   font-lobster
+  font-lobster-two
+  font-lora
+  font-merriweather
   font-open-sans
   font-open-sans-condensed
   font-oswald
   font-permanent-marker
   font-pt-sans
+  font-pt-serif
   font-quantico
   font-raleway
   font-raleway-dots
   font-roboto
+  font-roboto-condensed
   font-roboto-mono
   font-roboto-slab
   font-source-code-pro

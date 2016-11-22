@@ -2,7 +2,7 @@
 
 # Alot of these configs have been taken from the various places
 # on the web, most from here
-# https://github.com/mathiasbynens/dotfiles/blob/master/.osx
+# https://github.com/mathiasbynens/dotfiles/blob/master/.macos
 
 # Ask for the administrator password upfront
 sudo -v
@@ -13,21 +13,6 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 ###############################################################################
 # General UI/UX                                                               #
 ###############################################################################
-
-# Set Computer name
-
-echo ""
-echo "Would you like to set your computer name (as done via System Preferences >> Sharing)?  (y/n)"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-  echo "What would you like it to be?"
-  read COMPUTER_NAME
-  sudo scutil --set ComputerName $COMPUTER_NAME
-  sudo scutil --set HostName $COMPUTER_NAME
-  sudo scutil --set LocalHostName $COMPUTER_NAME
-  sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string $COMPUTER_NAME
-fi
-
 
 # Set standby delay to 24 hours (default is 1 hour)
 sudo pmset -a standbydelay 86400
@@ -58,6 +43,9 @@ defaults write com.apple.systempreferences NSQuitAlwaysKeepsWindows -bool false
 # Reveal IP address, hostname, OS version, etc. when clicking the clock
 # in the login window
 sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
+
+# Disable Notification Center and remove the menu bar icon
+launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
 
 ###############################################################################
 # SSD-specific tweaks                                                         #
@@ -106,8 +94,9 @@ defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 # Disable the warning when changing a file extension
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
-# Avoid creating .DS_Store files on network volumes
+# Avoid creating .DS_Store files on network or USB volumes
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 
 # Disable disk image verification
 defaults write com.apple.frameworks.diskimages skip-verify -bool true
@@ -164,8 +153,8 @@ defaults write com.apple.dock wvous-bl-corner -int 5
 defaults write com.apple.dock wvous-bl-modifier -int 0
 
 # Bottom right screen corner → Mission Control
-defaults write com.apple.dock wvous-bl-corner -int 2
-defaults write com.apple.dock wvous-bl-modifier -int 0
+defaults write com.apple.dock wvous-br-corner -int 2
+defaults write com.apple.dock wvous-br-modifier -int 0
 
 
 ###############################################################################
@@ -205,17 +194,6 @@ defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebK
 
 # Add a context menu item for showing the Web Inspector in web views
 defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
-
-###############################################################################
-# Mail                                                                        #
-###############################################################################
-
-# Disable send and reply animations in Mail.app
-defaults write com.apple.mail DisableReplyAnimations -bool true
-defaults write com.apple.mail DisableSendAnimations -bool true
-
-# Copy email addresses as `foo@example.com` instead of `Foo Bar <foo@example.com>` in Mail.app
-defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
 
 ###############################################################################
 # Spotlight                                                                   #
