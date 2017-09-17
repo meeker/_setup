@@ -44,9 +44,6 @@ defaults write com.apple.systempreferences NSQuitAlwaysKeepsWindows -bool false
 # in the login window
 sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
 
-# Disable Notification Center and remove the menu bar icon
-launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
-
 ###############################################################################
 # SSD-specific tweaks                                                         #
 ###############################################################################
@@ -110,10 +107,6 @@ defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 # Disable the warning before emptying the Trash
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
-# Show the ~/Library folder
-chflags nohidden ~/Library
-
-
 ###############################################################################
 # Dock, Dashboard, and hot corners                                            #
 ###############################################################################
@@ -135,27 +128,6 @@ defaults write com.apple.dock dashboard-in-overlay -bool true
 
 # Don’t automatically rearrange Spaces based on most recent use
 defaults write com.apple.dock mru-spaces -bool false
-
-# Hot corners
-# Possible values:
-#  0: no-op
-#  2: Mission Control
-#  3: Show application windows
-#  4: Desktop
-#  5: Start screen saver
-#  6: Disable screen saver
-#  7: Dashboard
-# 10: Put display to sleep
-# 11: Launchpad
-# 12: Notification Center
-# Bottom left screen corner → Start screen saver
-defaults write com.apple.dock wvous-bl-corner -int 5
-defaults write com.apple.dock wvous-bl-modifier -int 0
-
-# Bottom right screen corner → Mission Control
-defaults write com.apple.dock wvous-br-corner -int 2
-defaults write com.apple.dock wvous-br-modifier -int 0
-
 
 ###############################################################################
 # Safari & WebKit                                                             #
@@ -184,9 +156,6 @@ defaults write com.apple.Safari ShowSidebarInTopSites -bool false
 # Enable Safari’s debug menu
 defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
 
-# Remove useless icons from Safari’s bookmarks bar
-defaults write com.apple.Safari ProxiesInBookmarksBar "()"
-
 # Enable the Develop menu and the Web Inspector in Safari
 defaults write com.apple.Safari IncludeDevelopMenu -bool true
 defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
@@ -207,14 +176,6 @@ sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
 sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"
 
 ###############################################################################
-# Terminal & iTerm 2                                                          #
-###############################################################################
-
-# Only use UTF-8 in Terminal.app
-defaults write com.apple.terminal StringEncodings -array 4
-
-
-###############################################################################
 # Time Machine                                                                #
 ###############################################################################
 
@@ -223,14 +184,5 @@ defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 
 # Disable local Time Machine backups
 hash tmutil &> /dev/null && sudo tmutil disablelocal
-
-###############################################################################
-# Desktop Image                                                               #
-###############################################################################
-
-# copy desktop picture to default list
-sudo cp _files/Blue\ Waves.jpg /Library/Desktop\ Pictures/
-
-
 
 echo "Done. Note that some of these changes require a logout/restart to take effect."

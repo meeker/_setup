@@ -17,7 +17,6 @@ brew tap caskroom/fonts
 
 binaries=(
   git
-  node4-lts
   ruby
   wget
   python
@@ -28,26 +27,27 @@ brew install ${binaries[@]}
 
 apps=(
   alfred
+  atom
   charles
-  chromium
+  dash
+  docker
   doxie
   dropbox
   firefox
   firefoxdeveloperedition
-  google-chrome
-  google-chrome-canary
   ghostlab
   github-desktop
+  google-chrome
+  google-chrome-canary
+  hyper
   imageoptim
-  logitech-unifying
   opera
-  opera-mobile-emulator
   opera-beta
-  reflector
+  opera-mobile-emulator
+  ringcentral
   safari-technology-preview
   sketch
   skype
-  sublime-text2
   superduper
   virtualbox
   zeplin
@@ -59,7 +59,6 @@ brew cask install --appdir="/Applications" ${apps[@]}
 
 # fonts
 fonts=(
-  font-bitter
   font-droid-sans
   font-droid-sans-mono
   font-droid-serif
@@ -76,10 +75,10 @@ fonts=(
   font-open-sans
   font-open-sans-condensed
   font-oswald
+  font-patua-one
   font-permanent-marker
   font-pt-sans
   font-pt-serif
-  font-quantico
   font-raleway
   font-raleway-dots
   font-roboto
@@ -99,6 +98,5 @@ brew cask install ${fonts[@]}
 brew cleanup
 brew cask cleanup
 
-# install global node modules and gems
+# install global ruby gems
 gem install jekyll
-npm install -g grunt-cli gulp bower yo

@@ -1,5 +1,0 @@
-CLICOLOR=1
-alias ls='ls -G'
-alias slime='/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl'
-alias dropbox='cd  /Users/mark/Dropbox\ \(Personal\)/'
-alias code='cd /Users/mark/Code'
